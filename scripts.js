@@ -32,5 +32,4 @@ for (let i = 0; i < data.length; i += 1) {
     newDiv.appendChild(button)
 }
 
-	// Add the image to the div
    

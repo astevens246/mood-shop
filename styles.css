@@ -24,3 +24,46 @@ margin: 0;
     padding: 0.5em;
     text-decoration: none;
 }
+
+.items{
+    width: 80%;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+
+    width: 100%;
+    height: auto;
+}
+.item img{
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    max-width: 100%;
+    height: auto;
+
+}
+
+.item p {
+    /* Your styles for both paragraphs go here */
+    margin: 0;
+    color: rgb(255, 166, 0);
+  }
+  .item p:nth-child(2) {
+    /* Your styles for the price go here */
+    color: whitesmoke;
+    font-weight: strong; /* Example text color for price */
+  }
+
+  .item button {
+    /* Your styles for the add to cart button go here */
+    background-color: #4caf50; /* Example button background color */
+    color: #fff; /* Example text color for the button */
+    border: none;
+    padding: 10px 20px;
+    align-self: center;
+  }
+  
+  
+    
