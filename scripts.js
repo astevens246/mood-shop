@@ -30,23 +30,78 @@ for (let i = 0; i < data.length; i += 1) {
     button.dataset.price = data[i].price
     button.innerHTML = "Add to Cart"
     newDiv.appendChild(button)
+
+    const cart =[]
+
+    const a = 999
+    const b = 888
+    const greeting = "Hello"
+    const place  = "World"
+    const obj = { a, b, greeting, place }
+    
+
+
+    console.log(obj)
+    console.log('***********')
+
+
+
+
+    function addItem(name, price) {
+        for (let i= 0; i < cart.length; i += 1){
+            if(cart[i].name === name){
+                cart[i].qty += 1
+                return
+            }
+        }
+     const item = { name, price, qty: 1}
+     cart.push(item)
+    }
+    // Show Items
+    function showItems(){
+    //  console.log(cart.length)
+        const qty = getQty()
+        console.log(`You have ${getQty()} items in your cart`)
+
+     for (let i =0; i < cart.length; i += 1 ){
+        console.log(`-${ cart[i].name} $${cart[i].price} x ${cart[i].qty}`)
+     }
+
+
+     console.log(`Total in cart: $${getTotal()}`)
+    }
+    //Get Qty 
+    function getQty(){//gets total quantity 
+        let qty = 0 //qty is only visible in this block of code 
+        for(let i = 0; i < cart.length; i += 1){
+            qty += cart[i].qty
+        }
+        return qty //return ends a function but can also send the value somewhere 
+    }
+    // Get total
+    function getTotal(){
+        let total = 0 
+        for(let i =0; i < cart.length; i += 1){
+           total += cart[i].price * cart[i].qty
+        }
+
+        return total.toFixed(2)
+    }
+
+
+    addItem('Apple', 0.99)
+    addItem('Orange', 1.29)
+    addItem('Apple', 0.99)
+    addItem('Apple', 0.99)
+    addItem('Apple', 0.99)
+    addItem('Apple', 0.99)
+    addItem('Orange', 1.29)
+    addItem('Orange', 1.29)
+
+
+
+    showItems();
+ 
 }
 
-   const cart =[]
-
-   function addItem(name, price) {
-    const item = {name: name, price: price, qty: 1}
-    cart.push(item)
-
-   }
-
-   function showItems(){
-    console.log(cart.length)
-    console.log(`You have ${cart.length} items in your cart`)
-
-
-   }
-
-   addItem('Apple', 0.99)
-   addItem('Orange', 1.29)
-   showItems();
+  
