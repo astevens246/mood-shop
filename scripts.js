@@ -53,6 +53,12 @@ for (let i = 0; i < data.length; i += 1) {
     console.log(obj)
     console.log('***********')
 
+    const all_items_button = Array.from(document.querySelectorAll("button"))
+    console.log(all_items_button)
+    all_items_button.forEach(elt => elt.addEventListener('click', () => {
+        addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
+        showItems()
+      }))
 
 //----------------------------------------------------
 // add item 
@@ -131,17 +137,17 @@ for (let i = 0; i < data.length; i += 1) {
 //----------------------------------------------------
 
 
-    addItem('Apple', 0.99)
-    addItem('Orange', 1.29)
-    addItem('Apple', 0.99)
-    addItem('Apple', 0.99)
-    addItem('Frisbee',8.99)
-    addItem('Apple', 0.99)
-    addItem('Apple', 0.99)
-    addItem('Orange', 1.29)
-    addItem('Orange', 1.29)
-    removeItem('Frisbee')
-    removeItem('Apple', 1)
+    // addItem('Apple', 0.99)
+    // addItem('Orange', 1.29)
+    // addItem('Apple', 0.99)
+    // addItem('Apple', 0.99)
+    // addItem('Frisbee',8.99)
+    // addItem('Apple', 0.99)
+    // addItem('Apple', 0.99)
+    // addItem('Orange', 1.29)
+    // addItem('Orange', 1.29)
+    // removeItem('Frisbee')
+    // removeItem('Apple', 1)
 
 
 
