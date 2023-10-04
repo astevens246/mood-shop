@@ -3,8 +3,32 @@
  const itemList = document.getElementById('item-list')
  const cartQty = document.getElementById('cart-qty')
  const cartTotal = document.getElementById('cart-total')
+//--------------------------------------------------------
+//Handle Change events on update input 
+itemList.onchange = function(e){
+    if (e.target && e.target.classList.contains('update')){
+        const name = e.target.dataset.name
+        const qty = parseInt(e.target.value)
+        updateCart(name, qty)
 
+    }
 
+}
+// -------------------------------------------------------
+// Handle clicks on list
+itemList.addEventListener('click', (e) => {
+    if (e.target && e.target.classList.contains('remove')) {
+        const name = e.target.getAttribute('data-name');
+        removeItem(name); // Call the removeItem function to remove the item from the cart
+        showItems(); // Update the cart display after removal
+    } else if (e.target && e.target.classList.contains('add-one')){
+        const name = e.target.dataset.name
+        addItem(name)
+    } else if (e.target && e.target.classList.contains('remove-one')){
+        const name = e.target.dataset.name
+        removeItem(name, 1)
+    }
+});
  itemList.innerHTML = '<li> Hello World</li>'
 
 console.log(itemList)
@@ -59,7 +83,8 @@ for (let i = 0; i < data.length; i += 1) {
         addItem(elt.getAttribute('id'), elt.getAttribute('data-price'))
         showItems()
       }))
-
+    // handle add form submit
+  
 //----------------------------------------------------
 // add item 
     function addItem(name, price) {
@@ -79,18 +104,23 @@ for (let i = 0; i < data.length; i += 1) {
         const qty = getQty()
         cartQty.innerHTML = `You have ${getQty()} items in your cart`
 
-    let itemStr = ''
-     for (let i =0; i < cart.length; i += 1 ){
-        //console.log(`-${ cart[i].name} $${cart[i].price} x ${cart[i].qty}`)
-        // const name = cart[i].name
-        // const price = cart[i].price
-        // const qty = cart[i].qty 
+//---------------------------------------------------
+let itemStr = '';
+for (let i = 0; i < cart.length; i += 1) {
+    const { name, price, qty } = cart[i];
 
-       const { name, price, qty } = cart [i]
+    itemStr += `<li>
+        ${name} $${price} x ${qty} = $${qty * price} 
+        <button class="remove" data-name="${name}">Remove</button>
+        <button class="add-one" data-name="${name}"> + </button>
+        <button class="remove-one" data-name="${name}"> - </button>
+        <input class="update" type="number" min="0" data-name=${name}>
 
 
-        itemStr += `<li>${name} $${price} x ${qty} = ${qty * price} </li>`
-     }
+    </li>`;
+}
+//-------------------------------------------------------
+
      itemList.innerHTML = itemStr
 
 
@@ -116,7 +146,7 @@ for (let i = 0; i < data.length; i += 1) {
 
         return total.toFixed(2)
     }
-
+//----------------------------------------------
     function removeItem(name, qty = 0){
         for(let i = 0; i < cart.length; i += 1){
             if(cart[i].name === name){
@@ -132,7 +162,20 @@ for (let i = 0; i < data.length; i += 1) {
         }
     }
 
-
+//------------------------------------------------------
+    function updateCart(name, qty){
+        for (let i= 0; i < cart.length; i += 1){
+            if(cart[i].name === name) {
+                if (qty < 1) {
+                    removeItem(name)
+                    return
+                }
+                cart[i].qty = qty
+                showItems()
+                return
+            }
+        }
+    }
 
 //----------------------------------------------------
 
