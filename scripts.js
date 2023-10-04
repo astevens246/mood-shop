@@ -45,8 +45,8 @@ for (let i = 0; i < data.length; i += 1) {
     console.log('***********')
 
 
-
-
+//----------------------------------------------------
+// add item 
     function addItem(name, price) {
         for (let i= 0; i < cart.length; i += 1){
             if(cart[i].name === name){
@@ -57,6 +57,7 @@ for (let i = 0; i < data.length; i += 1) {
      const item = { name, price, qty: 1}
      cart.push(item)
     }
+//---------------------------------------------------
     // Show Items
     function showItems(){
     //  console.log(cart.length)
@@ -70,7 +71,8 @@ for (let i = 0; i < data.length; i += 1) {
 
      console.log(`Total in cart: $${getTotal()}`)
     }
-    //Get Qty 
+//----------------------------------------------------
+//Get Qty 
     function getQty(){//gets total quantity 
         let qty = 0 //qty is only visible in this block of code 
         for(let i = 0; i < cart.length; i += 1){
@@ -78,7 +80,8 @@ for (let i = 0; i < data.length; i += 1) {
         }
         return qty //return ends a function but can also send the value somewhere 
     }
-    // Get total
+//----------------------------------------------------
+// Get total
     function getTotal(){
         let total = 0 
         for(let i =0; i < cart.length; i += 1){
@@ -88,15 +91,37 @@ for (let i = 0; i < data.length; i += 1) {
         return total.toFixed(2)
     }
 
+    function removeItem(name, qty = 0){
+        for(let i = 0; i < cart.length; i += 1){
+            if(cart[i].name === name){
+                if (qty > 0) {
+                    cart[i].qty -= qty
+                }
+                cart[i].qty -= 1 
+                if(cart[i].qty < 1 || qty === 0){
+                    cart.splice(i, 1)
+                }
+                return
+            }
+        }
+    }
+
+
+
+//----------------------------------------------------
+
 
     addItem('Apple', 0.99)
     addItem('Orange', 1.29)
     addItem('Apple', 0.99)
     addItem('Apple', 0.99)
+    addItem('Frisbee',8.99)
     addItem('Apple', 0.99)
     addItem('Apple', 0.99)
     addItem('Orange', 1.29)
     addItem('Orange', 1.29)
+    removeItem('Frisbee')
+    removeItem('Apple', 1)
 
 
 
