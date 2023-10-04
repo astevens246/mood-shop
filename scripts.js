@@ -3,6 +3,10 @@
  const itemList = document.getElementById('item-list')
  const cartQty = document.getElementById('cart-qty')
  const cartTotal = document.getElementById('cart-total')
+
+ const homeLink = document.getElementById('home-link');
+ const aboutLink = document.getElementById('about-link');
+ const cartLink = document.getElementById('cart-link');
 //--------------------------------------------------------
 //Handle Change events on update input 
 itemList.onchange = function(e){
@@ -29,7 +33,6 @@ itemList.addEventListener('click', (e) => {
         removeItem(name, 1)
     }
 });
- itemList.innerHTML = '<li> Hello World</li>'
 
 console.log(itemList)
 
@@ -178,20 +181,6 @@ for (let i = 0; i < cart.length; i += 1) {
     }
 
 //----------------------------------------------------
-
-
-    // addItem('Apple', 0.99)
-    // addItem('Orange', 1.29)
-    // addItem('Apple', 0.99)
-    // addItem('Apple', 0.99)
-    // addItem('Frisbee',8.99)
-    // addItem('Apple', 0.99)
-    // addItem('Apple', 0.99)
-    // addItem('Orange', 1.29)
-    // addItem('Orange', 1.29)
-    // removeItem('Frisbee')
-    // removeItem('Apple', 1)
-
 
 
     showItems();

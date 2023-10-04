@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <header class='page-header'>
-    
-    <div class="header-center">
-      <h4>The Mood Shop</h4>
-      <nav>
-          <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Cart</a></li>
-          </ul>
-      </nav>
-  </div>
-      <main>
-        
-        <div class='items' id='items'>
-          <!-- Display moods here -->
-      </div>
-      </main>
 
-</header>
-
-
-  <head>
+<head>
     <link rel="stylesheet" href="styles.css">
     <title>Title of the document</title>
-  </head>
+</head>
 
-  <body>
+<body>
+    <div class="header-center">
+        <h4>The Mood Shop</h4>
+    </div>
+
+    <header class='page-header'>
+        <nav>
+            <ul>
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="about-link">About</a></li>
+                <li><a href="#" id="cart-link">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class='items' id='items'>
+            <!-- Display moods here -->
+        </div>
+    </main>
+
     <footer>
-      <div id='cart-qty'>
-        <!-- cart qty here -->
-      </div>
-      <ul id='item-list'>
-        <!-- cart items -->
-      </ul>
-      <div id='cart-total'>
-        <!-- cart total -->
-      </div>
+        <div id='cart-qty'>
+            <!-- cart qty here -->
+        </div>
+        <ul id='item-list'>
+            <!-- cart items -->
+        </ul>
+        <div id='cart-total'>
+            <!-- cart total -->
+        </div>
     </footer>
     <script src="scripts.js" type="module"></script>
-    
+</body>
 
-  </body>
 </html>
